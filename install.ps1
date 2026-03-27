@@ -13,4 +13,4 @@ Expand-Archive -Path $zip -DestinationPath $folder -Force
 
 Write-Host "Launching..." -ForegroundColor Green
 
-Start-Process "$folder\Velaris.exe"
+Start-Process (Get-ChildItem $folder -Recurse -Filter "Velaris.exe" | Select-Object -First 1).FullName
